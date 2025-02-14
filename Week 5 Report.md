@@ -8,7 +8,7 @@ Additionally, we utilized a real-world dataset from Expedia, dividing it into tr
 Under this circumstances,
 
 ## 1.3 Data
-
+2323324234
 # 2. Technical Approach 
 
 ## 2.1 Mathematical Formulation
