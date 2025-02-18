@@ -30,7 +30,7 @@ Based on the result of initial scenario, we do some extentions :
 - Consider using new a algorithm ---- **Matrix Completion (SVT)**.
 
 This feature model allows us to further explain the reasons behind consumers' choices. Based on this week's work, we can further use **Multiple Clustering** and then, algorithms like  **Matrix Completion** in future work.
-
+![Week 5 Flowchart](Week%205%20flowchart.png)
 
 <br>
 
@@ -40,7 +40,7 @@ This feature model allows us to further explain the reasons behind consumers' ch
 ## 1.1 Weekly Overview
 This week, we incorporated **item features** into our **regression model** to better specify the utility values of different items. By doing so, we aim to enhance the explanatory power of our model and improve its ability to predict the likelihood of people purchasing items not included in their previous offer set.
 Additionally, we utilized a real-world dataset from Expedia, dividing it into training and testing subsets for model evaluation. To analyze the problem, we applied both **linear regression** and a **neural network** framework, comparing their performance and insights.
-![Week 5 Flowchart](Week%205%20flowchart.png)
+
 
 ## 1.2 Background
 Expedia offers thousands of hotels, each characterized by attributes such as price, number of rooms, and available space. However, not all hotels are presented to every consumer; we only observe a consumer's choice within their personalized offer set. Our objective is to **model consumer decision-making over the broader universal set of options** and to **predict the likelihood** of a consumer selecting a hotel that was not included in their initial offer set.
