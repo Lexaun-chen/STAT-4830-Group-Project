@@ -40,7 +40,7 @@ $$
   P_{ij}^{(m)} = \frac{e^{u_{ij}^{(m)}}}{\sum_{k \in S_i} e^{u_{ik}^{(m)}}}
   $$
 
-- $u_{ij}^{(m)} = \mathbf{w}_m \cdot \mathbf{x}_{ij} + b_m$: Utility for the $m$-th consumer type
+- $u_{ij}^{(m)} = \mathbf{w}_m \cdot \mathbf{x}_{ij}$: Utility for the $m$-th consumer type
 
 - Initialization:
 Trains an initial MNL model using Adam optimizer and Negative Log-Likelihood (NLL) loss over 300 epochs.
