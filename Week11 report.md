@@ -96,9 +96,10 @@ To stabilize EMA updates, we apply **gradient and parameter clipping**.
 
 ➡️ **Observation**: On smaller matrices, EMA helps accelerate learning in the early stages.
 
-![Small Matrix Vanilla SGD Loss Curve](tests/Basic SGD Error Small Scale.png.png)
-![Small Matrix NQM Loss](tests/MSE Small Scale.png.png)
-![Small Matrix NQM Error](tests/Error Small Scale.png.png)
+![Small Matrix Vanilla SGD Loss Curve](https://github.com/Lexaun-chen/STAT-4830-Group-Project/blob/main/tests/Basic%20SGD%20Error%20Small%20Scale.png.png?raw=true)
+![Small Matrix NQM Loss](https://github.com/Lexaun-chen/STAT-4830-Group-Project/blob/main/tests/MSE%20Small%20Scale.png.png?raw=true)
+![Small Matrix NQM Error](https://github.com/Lexaun-chen/STAT-4830-Group-Project/blob/main/tests/Error%20Small%20Scale.png.png?raw=true)
+
 ---
 
 ### 2. Large-Scale Evaluation (500x500, Rank = 10)
@@ -112,8 +113,8 @@ To stabilize EMA updates, we apply **gradient and parameter clipping**.
 ➡️ **Observation**: For larger matrices, **Momentum** outperforms others in terms of convergence speed and final accuracy.
 
 ![tests/Basic SGD Error Large Scale.png.png](https://github.com/Lexaun-chen/STAT-4830-Group-Project/blob/main/tests/Basic%20SGD%20Error%20Large%20Scale.png.png?raw=true)
-![Large Matrix NQM Loss](tests/MSE Large Scale.png.png)
-![Large Matrix NQM Error](tests/Error Large Scale.png.png)
+![tests/MSE Large Scale.png.png](https://github.com/Lexaun-chen/STAT-4830-Group-Project/blob/main/tests/MSE%20Large%20Scale.png.png?raw=true)
+![tests/Error Large Scale.png.png](https://github.com/Lexaun-chen/STAT-4830-Group-Project/blob/main/tests/Error%20Large%20Scale.png.png?raw=true)
 
 ---
 
@@ -140,4 +141,3 @@ We introduced noise-aware matrix factorization methods with both **momentum** an
 
 **Notebook**: [Colab Link](https://colab.research.google.com/drive/1AZWJ9Za3fyonyTNOJA_B9gg6jDu9Bi81)
 
-**Reference**: Inspired by `STAT 4830 Week 5 Report`, modified and extended for matrix completion analysis.
