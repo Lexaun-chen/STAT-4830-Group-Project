@@ -96,9 +96,9 @@ To stabilize EMA updates, we apply **gradient and parameter clipping**.
 
 ➡️ **Observation**: On smaller matrices, EMA helps accelerate learning in the early stages.
 
-![Small Matrix Loss Curve](images/image-small.png)
-![Small Matrix Extra Loss](images/image-extra-small.png)
-
+![Small Matrix Vanilla SGD Loss Curve](tests/Basic SGD Error Small Scale.png.png)
+![Small Matrix NQM Loss](tests/MSE Small Scale.png.png)
+![Small Matrix NQM Error](tests/Error Small Scale.png.png)
 ---
 
 ### 2. Large-Scale Evaluation (500x500, Rank = 10)
@@ -111,8 +111,9 @@ To stabilize EMA updates, we apply **gradient and parameter clipping**.
 
 ➡️ **Observation**: For larger matrices, **Momentum** outperforms others in terms of convergence speed and final accuracy.
 
-![Large Matrix Loss Curve](images/image-large.png)
-![Large Matrix Extra Loss](images/image-extra-large.png)
+![tests/Basic SGD Error Large Scale.png.png](https://github.com/Lexaun-chen/STAT-4830-Group-Project/blob/main/tests/Basic%20SGD%20Error%20Large%20Scale.png.png?raw=true)
+![Large Matrix NQM Loss](tests/MSE Large Scale.png.png)
+![Large Matrix NQM Error](tests/Error Large Scale.png.png)
 
 ---
 
