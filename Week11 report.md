@@ -69,12 +69,21 @@ Each iteration updates parameters using the gradient of the observed error:
 
 $$
 \\begin{aligned}
-\\ e_{ij} &= X_{ij} - \hat{X}_{ij} \\\\
-\\ U_i &\leftarrow U_i + \alpha (2 e_{ij} V_j - \beta U_i) \\
-\\ V_j &\leftarrow V_j + \alpha (2 e_{ij} U_i - \beta V_j) \\\\
-\\ b_i &\leftarrow b_i + \alpha (2 e_{ij} - \beta b_i) \\\\
-\\ b_j &\leftarrow b_j + \alpha (2 e_{ij} - \beta b_j)
-\\end{aligned}
+e_{ij} &= X_{ij} - \hat{X}_{ij} 
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+U_i &\leftarrow U_i + \alpha (2e_{ij} V_j - \beta U_i) \\
+V_j &\leftarrow V_j + \alpha (2e_{ij} U_i - \beta V_j)
+\end{aligned}
+$$
+$$
+\\begin{aligned}
+b_i &\leftarrow b_i + \alpha (2 e_{ij} - \beta b_i) \\
+b_j &\leftarrow b_j + \alpha (2 e_{ij} - \beta b_j)
+\end{aligned}
 $$
 
 ### 2. SGD with Momentum
@@ -100,15 +109,15 @@ Instead of accumulating momentum, we use exponentially smoothed gradients:
 
 $$
 \\begin{aligned}
-EMA_{U_i} &\\leftarrow \\beta \\cdot EMA_{U_i} + (1 - \\beta) \\cdot \\text{grad}_{U_i} \\\\
-EMA_{V_j} &\\leftarrow \\beta \\cdot EMA_{V_j} + (1 - \\beta) \\cdot \\text{grad}_{V_j}
+EMA_{U_i} &\leftarrow \beta \cdot EMA_{U_i} + (1 - \beta) \cdot \text{grad}_{U_i} \\\\
+EMA_{V_j} &\leftarrow \beta \cdot EMA_{V_j} + (1 - \beta) \cdot \text{grad}_{V_j}
 \\end{aligned}
 $$
 
 Then update:
 
 $$
-U_i \\leftarrow U_i + EMA_{U_i}, \\quad V_j \\leftarrow V_j + EMA_{V_j}
+U_i \leftarrow U_i + EMA_{U_i}, \quad V_j \leftarrow V_j + EMA_{V_j}
 $$
 
 To stabilize EMA updates, we apply **gradient and parameter clipping**.
