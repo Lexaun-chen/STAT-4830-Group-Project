@@ -15,7 +15,7 @@ We introduce noise into the updates (Noisy SGD) and analyze the effect of moment
 ## Problem Setup
 
 
-We consider a partially observed matrix \( X \in \mathbb{R}^{m \times n} \), where some entries are missing (`NaN`).  
+We consider a partially observed matrix $$\( X \in \mathbb{R}^{m \times n} \)$$, where some entries are missing (`NaN`).  
 Let the observed index set be:
 
 $$
@@ -27,15 +27,15 @@ $$
 ---
  ### Low-Rank Matrix Factorization
 
-Assume \( X \) is approximately low-rank. We aim to find:
+Assume $$\( X \)$$ is approximately low-rank. We aim to find:
 
 $$
 X \approx \hat{X} = U V^\top
 $$
 
-- \( U \in \mathbb{R}^{m \times k} \): latent features of users  
-- \( V \in \mathbb{R}^{n \times k} \): latent features of items  
-- \( k \ll \min(m, n) \): low-rank dimension
+- $$\( U \in \mathbb{R}^{m \times k} \)$$: latent features of users  
+- $$\( V \in \mathbb{R}^{n \times k} \)$$: latent features of items  
+- $$\( k \ll \min(m, n) \)$$: low-rank dimension
 
 To improve expressiveness, we add **bias terms**:
 
@@ -43,8 +43,8 @@ $$
 X_{ij} \\approx \\hat{X}_{ij} = b + b_i + b_j + U_i^\top V_j
 $$
 
-- \( b \): global average bias  
-- \( b_i \), \( b_j \): user/item biases
+- $$\( b \)$$: global average bias  
+- $$\( b_i \), \( b_j \)$$: user/item biases
 
 Only observed entries (non-missing values) in \\(X\\) are used to optimize the loss function.
 
@@ -56,8 +56,8 @@ $$
 \mathcal{L} = \frac{1}{|\Omega|} \sum_{(i,j) \in \Omega} (X_{ij} - \hat{X}_{ij})^2 + \beta (\|U\|_F^2 + \|V\|_F^2)
 $$
 
-- \( \| \cdot \|_F \): Frobenius norm  
-- \( \beta \): regularization coefficient
+- $$\( \| \cdot \|_F \$$): Frobenius norm  
+- $$\( \beta \)$$: regularization coefficient
 
 ---
 
@@ -108,10 +108,11 @@ $$
 Instead of accumulating momentum, we use exponentially smoothed gradients:
 
 $$
-\\begin{aligned}
-EMA_{U_i} &\leftarrow \beta \cdot EMA_{U_i} + (1 - \beta) \cdot \text{grad}_{U_i} \\\\
+EMA_{U_i} &\leftarrow \beta \cdot EMA_{U_i} + (1 - \beta) \cdot \text{grad}_{U_i} 
+$$
+
+$$
 EMA_{V_j} &\leftarrow \beta \cdot EMA_{V_j} + (1 - \beta) \cdot \text{grad}_{V_j}
-\\end{aligned}
 $$
 
 Then update:
@@ -121,6 +122,21 @@ U_i \leftarrow U_i + EMA_{U_i}, \quad V_j \leftarrow V_j + EMA_{V_j}
 $$
 
 To stabilize EMA updates, we apply **gradient and parameter clipping**.
+
+### 4. Adam Optimizer (from PyTorch)
+
+PyTorch's `Adam` optimizer combines momentum and adaptive learning rate:
+
+$$
+\theta_t \leftarrow \theta_{t-1} - \eta \cdot \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \epsilon}
+$$
+
+Where:
+- $$\( \hat{m}_t \): momentum$$ (1st moment)
+- $$\( \hat{v}_t \): RMS of gradients$$ (2nd moment)
+
+---
+
 
 ## Experiments
 
