@@ -132,8 +132,8 @@ $$
 $$
 
 Where:
-- $$\( \hat{m}_t \): momentum$$ (1st moment)
-- $$\( \hat{v}_t \): RMS of gradients$$ (2nd moment)
+- $$\( \hat{m}_t \)$$: momentum (1st moment)
+- $$\( \hat{v}_t \)$$: RMS of gradients (2nd moment)
 
 ---
 
