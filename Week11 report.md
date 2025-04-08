@@ -14,26 +14,52 @@ We introduce noise into the updates (Noisy SGD) and analyze the effect of moment
 
 ## Problem Setup
 
-Given an incomplete matrix \\(X \\in \\mathbb{R}^{m \\times n}\\), we aim to find low-rank factors \\(U \\in \\mathbb{R}^{m \\times k}\\) and \\(V \\in \\mathbb{R}^{n \\times k}\\) such that:
+
+We consider a partially observed matrix \( X \in \mathbb{R}^{m \times n} \), where some entries are missing (`NaN`).  
+Let the observed index set be:
 
 $$
-X_{ij} \\approx \\hat{X}_{ij} = b + b_i + b_j + U_i^\\top V_j
+\Omega = \{(i, j) \mid X_{ij} \text{ is observed}\}
 $$
 
-Where:
-- \\(b\\) is the global bias
-- \\(b_i\\), \\(b_j\\) are user/item biases
-- \\(U_i\\), \\(V_j\\) are latent vectors
+**Goal**: Recover missing entries of \( X \) by finding a low-rank matrix approximation.
+
+---
+ ### Low-Rank Matrix Factorization
+
+Assume \( X \) is approximately low-rank. We aim to find:
+
+$$
+X \approx \hat{X} = U V^\top
+$$
+
+- \( U \in \mathbb{R}^{m \times k} \): latent features of users  
+- \( V \in \mathbb{R}^{n \times k} \): latent features of items  
+- \( k \ll \min(m, n) \): low-rank dimension
+
+To improve expressiveness, we add **bias terms**:
+
+$$
+X_{ij} \\approx \\hat{X}_{ij} = b + b_i + b_j + U_i^\top V_j
+$$
+
+- \( b \): global average bias  
+- \( b_i \), \( b_j \): user/item biases
 
 Only observed entries (non-missing values) in \\(X\\) are used to optimize the loss function.
 
-### Objective Function
+### Loss Function (Squared Error + Regularization)
 
-Minimize the mean squared error with \\(\\ell_2\\) regularization:
+We minimize the error only on observed entries:
 
 $$
-\\mathcal{L} = \\frac{1}{|\\Omega|} \\sum_{(i,j) \\in \\Omega} (X_{ij} - \\hat{X}_{ij})^2 + \\beta (\\|U\\|^2 + \\|V\\|^2)
+\mathcal{L} = \frac{1}{|\Omega|} \sum_{(i,j) \in \Omega} (X_{ij} - \hat{X}_{ij})^2 + \beta (\|U\|_F^2 + \|V\|_F^2)
 $$
+
+- \( \| \cdot \|_F \): Frobenius norm  
+- \( \beta \): regularization coefficient
+
+---
 
 ## Training Strategies
 
@@ -43,8 +69,11 @@ Each iteration updates parameters using the gradient of the observed error:
 
 $$
 \\begin{aligned}
-U_i &\\leftarrow U_i + \\alpha (2e_{ij} V_j - \\beta U_i) \\\\
-V_j &\\leftarrow V_j + \\alpha (2e_{ij} U_i - \\beta V_j)
+\\ e_{ij} &= X_{ij} - \hat{X}_{ij} \\\\
+\\ U_i &\leftarrow U_i + \alpha (2 e_{ij} V_j - \beta U_i) \\
+\\ V_j &\leftarrow V_j + \alpha (2 e_{ij} U_i - \beta V_j) \\\\
+\\ b_i &\leftarrow b_i + \alpha (2 e_{ij} - \beta b_i) \\\\
+\\ b_j &\leftarrow b_j + \alpha (2 e_{ij} - \beta b_j)
 \\end{aligned}
 $$
 
