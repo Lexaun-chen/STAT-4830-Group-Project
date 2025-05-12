@@ -70,7 +70,8 @@ Epochs: `300` (initial), `500` (support finding), `3000` (proportion update).
 - Iterative Improvement: Each iteration refines the mixture model, reducing NLL loss (specific values truncated in the output but trend downward, e.g., ~`2.85` after one iteration).
 - Consumer Types: Up to 50 distinct preference profiles, each with associated proportions.
 
-![Week 9 Result](https://github.com/Lexaun-chen/STAT-4830-Group-Project/blob/main/Week%209%20-result.png?raw=true)
+![Week 9 Result](https://github.com/Lexaun-chen/STAT-4830-Group-Project/blob/main/development_history/past_reports(including%20self-critiques)/Week%209%20-result.png?raw=true)
+
 
 ## 4. Next steps
 To advance the current model, we propose:
