@@ -10,7 +10,7 @@ This project addresses the problem of predicting consumer hotel preferences base
 https://colab.research.google.com/drive/1u8P8WUMnW8a9PnYXDeWyapwQbmQUbVnf?usp=sharing
 ### Matrix Completion Algorithm (NN-based+Adam)
 #### Netflix datadet
-https://colab.research.google.com/drive/1ZZg2OyqT9Gd4FOCcCQV-kTcAWMcw1YDI#scrollTo=_qPSiFMlWu-S
+https://colab.research.google.com/drive/10wc_ViKCkdIKrYfXoaxzNkpGt_y-oBNq?usp=sharing
 
 #### Expedia dataset
 https://colab.research.google.com/drive/10Qhc49LnFdxzMEYaxjaSKuz9-rmb6DoU
