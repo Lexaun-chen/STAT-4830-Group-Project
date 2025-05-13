@@ -8,7 +8,7 @@ This project addresses the problem of predicting consumer hotel preferences base
 #### src/
 Contains the core implementation files, such as frank_wolfe.py and adam_expedia_completion.py, which define the main classes (Problem_FrankWolfe, etc.) and functions used for training and evaluating the preference prediction model.
 #### notebooks/
-Includes cleaned Jupyter notebooks used for Frank-Wolfe Algorithm and matrix completion. These notebooks import from src/ and provide step-by-step execution of the data preprocessing, model training, and result visualization. There is a readme file summarizing the function and work of demos.
+Includes cleaned Jupyter notebooks used for Frank-Wolfe Algorithm and Matrix Completion. These notebooks import from src/ and provide step-by-step execution of the data preprocessing, model training, and result visualization. There is a readme file summarizing the function and work of demos.
 #### tests/
 Includes test files and datasets (e.g., train_28-32_10000.csv, test_28-32_1000.csv) used for evaluating model performance and verifying functionality. 
 #### docs/
@@ -19,25 +19,6 @@ The final project report summarizing the problem background, modeling approach, 
 Lists the Python dependencies required to reproduce the results in a consistent environment (e.g., torch, numpy, pandas).
 #### development_history/
 Including the past code, notebooks,tests, reports and slides(including self-critiques), figures and diagrams used in reports before and exploration of LLM.
-
-## Setup Instructions
-We highly recommend using Google Colab to view and run our final demo. It handles all required installations automatically—just click “Runtime → Run all”, and the full pipeline will execute without any setup.
-If you prefer to run the code locally, follow these steps:
-1. Prepare a Jupyter Environment
-Make sure Jupyter Notebook is installed and properly configured with a Python 3.9+ kernel.
-2. Install Dependencies
-Use the provided requirements.txt to install all necessary packages:
-pip install -r requirements.txt
-3. Download Source Files
-Make sure you have the following files locally:
-The notebook: notebooks/Demo.ipynb
-Source code in src/
-Any scripts or test files if you want to run from command line or verify with pytest
-4. Set the Python Path (if needed)
-Ensure your Python environment can locate the src/ module. If needed, add the project root to your PYTHONPATH or append manually in the notebook.
-5. Run the Notebook
-Open and execute the notebook:
-It will import functions from src/, train the model, and display the results—including convergence plots and ranking tables.
 
 ## Setup Instructions
 
@@ -65,16 +46,15 @@ If you'd like to run the code on your local machine, follow these steps:
    Make sure you have the following files in your local directory:
    - The notebook: `notebooks/Demo.ipynb`
    - Source code in `src/`
-   - Any additional scripts or test files (optional)
+   - Any additional scripts or test files
 4. **Set the Python Path (if needed)**  
    Ensure your environment can locate the `src/` module:
    ```python
    import sys
    sys.path.append('../src')
    ```If needed, add the project root to your PYTHONPATH or append manually in the notebook.
-5. Run the Notebook
 5. **Run the Notebook**  
-   Open and execute `Demo.ipynb`:
+   Open and execute Demos in `notebooks/`:
    - It will import functions from `src/`
    - Train the model and display results
    - Include convergence plots, evaluation metrics, and ranking tables
