@@ -39,6 +39,59 @@ Ensure your Python environment can locate the src/ module. If needed, add the pr
 Open and execute the notebook:
 It will import functions from src/, train the model, and display the results—including convergence plots and ranking tables.
 
+## Setup Instructions
+
+We **highly recommend using [Google Colab](https://colab.research.google.com/)** to view and run our final demo. It automatically handles all dependencies and environment setup.  
+Simply open the notebook and click:
+
+```
+Runtime → Run all
+```
+
+The full pipeline will execute, including downloading data, model training, and result visualization.
+
+### Running Locally
+
+If you'd like to run the code on your local machine, follow these steps:
+
+1. **Prepare a Jupyter Environment**  
+   Make sure [Jupyter Notebook](https://jupyter.org/) is installed and configured with a Python **3.9+** kernel.
+2. **Install Dependencies**  
+   Use the provided `requirements.txt` to install all necessary packages:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. **Download Source Files**  
+   Make sure you have the following files in your local directory:
+   - The notebook: `notebooks/Demo.ipynb`
+   - Source code in `src/`
+   - Any additional scripts or test files (optional)
+4. **Set the Python Path (if needed)**  
+   Ensure your environment can locate the `src/` module:
+   ```python
+   import sys
+   sys.path.append('../src')
+   ```If needed, add the project root to your PYTHONPATH or append manually in the notebook.
+5. Run the Notebook
+5. **Run the Notebook**  
+   Open and execute `Demo.ipynb`:
+   - It will import functions from `src/`
+   - Train the model and display results
+   - Include convergence plots, evaluation metrics, and ranking tables
+
+### Dataset Access
+
+All datasets required by the demo are **hosted in the `test/` folder of our GitHub repository**, and are **automatically loaded via URL** in the notebook.  
+There is no need for manual download or local storage.
+
+### GPU Support (Colab)
+
+Our entire pipeline is compatible with **Google Colab GPU runtime**, and runs on **T4 GPUs** by default.
+
+Training and evaluation steps have been optimized for T4 hardware.  
+You’ll benefit from accelerated matrix operations, especially during SVD and model fitting phases.
+
+
 ## Running the Code
 The entire final results can be executed seamlessly in Google Colab with one click.
 Our final notebook automatically imports all core functions from the src/ directory and performs end-to-end training, evaluation, and visualization. Unit tests from the tests/ folder can also be executed within the notebook. 
