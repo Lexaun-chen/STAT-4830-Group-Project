@@ -6,8 +6,11 @@ This project addresses the problem of predicting consumer hotel preferences base
 ## Setup Instructions
 ## Running the Code
 ## Executable Demo Link
-# Frank-Wolfe Algorithm (MNL and NN-based)
+### Frank-Wolfe Algorithm (MNL and NN-based)
 https://colab.research.google.com/drive/1u8P8WUMnW8a9PnYXDeWyapwQbmQUbVnf?usp=sharing
-# Matrix Completion Algorithm (NN-based+Adam)
-Netflix datadet:https://colab.research.google.com/drive/1ZZg2OyqT9Gd4FOCcCQV-kTcAWMcw1YDI#scrollTo=_qPSiFMlWu-S
-Expedia dataset: https://colab.research.google.com/drive/10Qhc49LnFdxzMEYaxjaSKuz9-rmb6DoU
+### Matrix Completion Algorithm (NN-based+Adam)
+#### Netflix datadet
+https://colab.research.google.com/drive/1ZZg2OyqT9Gd4FOCcCQV-kTcAWMcw1YDI#scrollTo=_qPSiFMlWu-S
+
+#### Expedia dataset
+https://colab.research.google.com/drive/10Qhc49LnFdxzMEYaxjaSKuz9-rmb6DoU
