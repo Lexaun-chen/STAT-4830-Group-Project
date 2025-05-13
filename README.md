@@ -34,7 +34,7 @@ For more details and a breakdown of each step, see the Colab demo section.
 ## Executable Demo Link
 
 ## Frank-Wolfe Algorithm (MNL and NN-based)
-https://colab.research.google.com/drive/1u8P8WUMnW8a9PnYXDeWyapwQbmQUbVnf?usp=sharing
+[https://colab.research.google.com/drive/1u8P8WUMnW8a9PnYXDeWyapwQbmQUbVnf?usp=sharing](https://colab.research.google.com/drive/14N6OsXc01ejDGrXR_4BklPs-PuP9zc4L?usp=sharing)
 
 ## Matrix Completion Algorithm (NN-based+Adam)
 
