@@ -354,13 +354,13 @@ def train_frank_wolfe(type_num, tr_offerset_list, tr_sell_list, tr_mask_list, op
     EVALUATION_LOSS_LIST = []
     TEST_LOSS_LIST = []
     with torch.no_grad():
-        f = torch.zeros(len(val_sell), problem.sales.num_products, dtype=torch.float32, device=device)  # 使用验证集数据
+        f = torch.zeros(len(val_sell), problem.sales.num_products, dtype=torch.float32, device=device)  # using test data
         for proportion, fw_func in zip(problem.proportion, problem.taste_list):
             fw = torch.exp(fw_func(torch.tensor(val_offerset, dtype=torch.float32, device=device), torch.tensor(val_mask, dtype=torch.float32, device=device)))
             f += proportion * fw
         f_log = torch.log(f)
-        evaluation_loss = nn.NLLLoss()(f_log, torch.tensor(val_sell, dtype=torch.int64, device=device).argmax(dim=1))  # 计算验证集损失值
-        EVALUATION_LOSS_LIST.append(evaluation_loss.item())  # 将损失值添加到列表中
+        evaluation_loss = nn.NLLLoss()(f_log, torch.tensor(val_sell, dtype=torch.int64, device=device).argmax(dim=1))  # compute test loss
+        EVALUATION_LOSS_LIST.append(evaluation_loss.item())  # add loss to list
 
         f = torch.zeros(len(te_sell_list), problem.sales.num_products, dtype=torch.float32, device=device)
         for proportion, fw_func in zip(problem.proportion, problem.taste_list):
@@ -370,7 +370,7 @@ def train_frank_wolfe(type_num, tr_offerset_list, tr_sell_list, tr_mask_list, op
         test_loss = nn.NLLLoss()(f_log, torch.tensor(te_sell_list, dtype=torch.int64, device=device).argmax(dim=1))
         TEST_LOSS_LIST.append(test_loss.item())
 
-        # print('Evaluation loss: ', evaluation_loss.item())  # 打印损失值
+        # print('Evaluation loss: ', evaluation_loss.item())  # print loss
 
     for m in range(n):
         print('-----Consumer Type ' + str(m + 1) + ' Start Searching------')
@@ -383,16 +383,16 @@ def train_frank_wolfe(type_num, tr_offerset_list, tr_sell_list, tr_mask_list, op
         print('main problem loss: ', problem.NLL_main.item())
         print('-----One Iteration Done-----')
         NLL_LOSS_LIST.append(problem.NLL_main.item())
-            # 在 proportion_update() 之后进行评估
+            # evaluate after proportion_update()
         with torch.no_grad():
-            f = torch.zeros(len(val_sell), problem.sales.num_products, dtype=torch.float32, device=device)  # 使用验证集数据
+            f = torch.zeros(len(val_sell), problem.sales.num_products, dtype=torch.float32, device=device)  # using testing data
             for proportion, fw_func in zip(problem.proportion, problem.taste_list):
                 fw = torch.exp(fw_func(torch.tensor(val_offerset, dtype=torch.float32, device=device), torch.tensor(val_mask, dtype=torch.float32, device=device)))
                 f += proportion * fw
             f_log = torch.log(f)
-            evaluation_loss = nn.NLLLoss()(f_log, torch.tensor(val_sell, dtype=torch.int64, device=device).argmax(dim=1))  # 计算验证集损失值
-            EVALUATION_LOSS_LIST.append(evaluation_loss.item())  # 将损失值添加到列表中
-            print('Evaluation loss: ', evaluation_loss.item())  # 打印损失值
+            evaluation_loss = nn.NLLLoss()(f_log, torch.tensor(val_sell, dtype=torch.int64, device=device).argmax(dim=1))  # compute testing loss
+            EVALUATION_LOSS_LIST.append(evaluation_loss.item())
+            print('Evaluation loss: ', evaluation_loss.item())  # print
 
             f = torch.zeros(len(te_sell_list), problem.sales.num_products, dtype=torch.float32, device=device)
             for proportion, fw_func in zip(problem.proportion, problem.taste_list):
@@ -402,8 +402,11 @@ def train_frank_wolfe(type_num, tr_offerset_list, tr_sell_list, tr_mask_list, op
             test_loss = nn.NLLLoss()(f_log, torch.tensor(te_sell_list, dtype=torch.int64, device=device).argmax(dim=1))
             TEST_LOSS_LIST.append(test_loss.item())
 
-    return problem, NLL_LOSS_LIST, EVALUATION_LOSS_LIST, TEST_LOSS_LIST, tl, vl # 返回问题、训练集损失列表和测试集损失列表
+    return problem, NLL_LOSS_LIST, EVALUATION_LOSS_LIST, TEST_LOSS_LIST, tl, vl # return
 
+
+
+# Adding a retry mechanism for more robust support finding
 
 # def train_frank_wolfe(type_num, tr_offerset_list, tr_sell_list, tr_mask_list, opt='adam', loss_tolerance=1e-4, max_re_search=3):
 #     problem = Problem_FrankWolfe(tr_offerset_list, tr_sell_list, tr_mask_list)
@@ -414,21 +417,21 @@ def train_frank_wolfe(type_num, tr_offerset_list, tr_sell_list, tr_mask_list, op
 #     for m in range(n):
 #         print('-----Consumer Type ' + str(m + 1) + ' Start Searching------')
 
-#         last_proportion = problem.proportion[:]  # Save current proportions
+#        last_proportion = problem.proportion[:]  # Save current proportions
 #         re_search_count = 0  # Initialize re-search counter
 
-#         while True:  # Loop for re-search attempts
+#        while True:  # Loop for re-search attempts
 
 #             if opt == 'adam':
 #                 problem.support_finding()
-#                 problem.proportion_update()
-#             elif opt == 'lbfgs':
-#                 problem.support_finding_lbfgs()
-#                 problem.proportion_update_lbfgs()
+#                problem.proportion_update()
+#           elif opt == 'lbfgs':
+#             problem.support_finding_lbfgs()
+#                problem.proportion_update_lbfgs()
 #             else:
 #                 raise ValueError("Invalid optimizer choice. Choose 'adam' or 'lbfgs'.")
 
-#             # Check for loss improvement
+             # Check for loss improvement
 #             current_loss = problem.NLL_main.item()
 #             if m > 0 and abs(current_loss - NLL_LOSS_LIST[-1]) < loss_tolerance:
 #                 print("Loss not improving significantly. Deleting last support and searching again.")
@@ -436,7 +439,7 @@ def train_frank_wolfe(type_num, tr_offerset_list, tr_sell_list, tr_mask_list, op
 #                 problem.fw_list.pop()
 #                 problem.proportion = last_proportion  # Restore previous proportions
 #                 problem.main_problem_loss()
-
+#
 #                 re_search_count += 1  # Increment re-search counter
 #                 if re_search_count >= max_re_search:
 #                     print(f"Reached maximum re-search limit ({max_re_search}). Moving to next consumer type.")
