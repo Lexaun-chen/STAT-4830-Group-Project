@@ -5,6 +5,10 @@ This project addresses the problem of predicting consumer hotel preferences base
 ## Repository Structure Overview
 ## Setup Instructions
 ## Running the Code
+The entire final results can be executed seamlessly in Google Colab with one click.
+Our final notebook automatically imports all core functions from the src/ directory and performs end-to-end training, evaluation, and visualization. Unit tests from the tests/ folder can also be executed within the notebook. 
+To run the project: 👉 Click “Runtime → Run all” in Colab — everything will install and execute automatically, no manual setup required.
+For more details and a breakdown of each step, see the Colab demo section.
 ## Executable Demo Link
 ### Frank-Wolfe Algorithm (MNL and NN-based)
 https://colab.research.google.com/drive/1u8P8WUMnW8a9PnYXDeWyapwQbmQUbVnf?usp=sharing
