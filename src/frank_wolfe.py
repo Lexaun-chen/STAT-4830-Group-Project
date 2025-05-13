@@ -63,17 +63,17 @@ class Sales:
         self.num_features = self.offerset.shape[2]
         self.N = torch.sum(self.N_sales)
 
-class Preference(nn.Module):
-    def __init__(self, p_num_feature):
-        super(Preference, self).__init__()
-        self.linear = nn.Linear(p_num_feature, 1)
-        init.normal_(self.linear.weight, std=1)
-
-    def forward(self, p_offerset, p_mask):
-        output = self.linear(p_offerset).squeeze(-1)
-        masked_e = torch.where(p_mask == 1, output, float('-inf'))
-        log_choice_p = F.log_softmax(masked_e, dim=-1)
-        return log_choice_p
+# class Preference(nn.Module):
+#   def __init__(self, p_num_feature):
+#        super(Preference, self).__init__()
+#        self.linear = nn.Linear(p_num_feature, 1)
+#        init.normal_(self.linear.weight, std=1)
+#
+#    def forward(self, p_offerset, p_mask):
+#        output = self.linear(p_offerset).squeeze(-1)
+#        masked_e = torch.where(p_mask == 1, output, float('-inf'))
+#        log_choice_p = F.log_softmax(masked_e, dim=-1)
+#        return log_choice_p
 
 
 class Preference(nn.Module):
