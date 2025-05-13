@@ -1,5 +1,18 @@
-numpy
-pandas
-matplotlib
-scikit-learn
-torch
+# requirements.txt for Expedia + Netflix Matrix Completion Project
+# Compatible with Python 3.10+ and Colab's default CUDA + T4 GPU setup
+
+# ✅ GPU Support:
+# Tested on Google Colab with T4 GPUs.
+# If running locally, install CUDA-compatible PyTorch from https://pytorch.org
+
+numpy>=1.23
+pandas>=1.5
+scipy>=1.9
+
+torch>=1.13
+torchvision>=0.14
+
+scikit-learn>=1.2
+
+matplotlib>=3.6
+seaborn>=0.12
