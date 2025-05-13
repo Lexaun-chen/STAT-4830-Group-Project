@@ -5,20 +5,48 @@
 This project addresses the problem of predicting consumer hotel preferences based on personalized offer sets and relevant hotel and consumer features, using real-world data from Expedia. Two modeling frameworks were explored: a mixture preference learning model optimized via the Frank-Wolfe algorithm, including neural network extensions, and a matrix completion approach based on low-rank factorization methods. The findings indicate that linear models generally outperform neural networks due to limited data size and inherent linearity in consumer decision-making. Additionally, the matrix completion methods proved robust and effective, particularly when incorporating bias-aware initialization and using the Huber loss function to handle sparsity and noisy data. Overall, the study provides valuable insights into modeling consumer preferences and demonstrates practical methods suitable for predicting choices in large-scale recommendation systems.
 
 ## Repository Structure Overview
-#### src/
-Contains the core implementation files, such as frank_wolfe.py and adam_expedia_completion.py, which define the main classes (Problem_FrankWolfe, etc.) and functions used for training and evaluating the preference prediction model.
-#### notebooks/
-Includes cleaned Jupyter notebooks used for Frank-Wolfe Algorithm and Matrix Completion. These notebooks import from src/ and provide step-by-step execution of the data preprocessing, model training, and result visualization. There is a readme file summarizing the function and work of demos.
-#### tests/
-Includes test files and datasets (e.g., train_28-32_10000.csv, test_28-32_1000.csv) used for evaluating model performance and verifying functionality. 
-#### docs/
-Stores final presentation slides
-#### report.md
-The final project report summarizing the problem background, modeling approach, empirical results, and key findings.
-#### requirements.txt
-Lists the Python dependencies required to reproduce the results in a consistent environment (e.g., torch, numpy, pandas).
-#### development_history/
-Including the past code, notebooks,tests, reports and slides(including self-critiques), figures and diagrams used in reports before and exploration of LLM.
+
+```
+.
+├── src/
+│   └── Core implementation files, including:
+│       - frank_wolfe.py
+│       - adam_expedia_completion.py
+│       These define key classes (e.g., Problem_FrankWolfe) and functions for model training and evaluation.
+│
+├── notebooks/
+│   └── Cleaned Jupyter notebooks demonstrating:
+│       - Frank-Wolfe Algorithm
+│       - Matrix Completion pipelines
+│       Each notebook imports from `src/` and walks through preprocessing, training, and visualization.
+│       A readme file summarizes the purpose and content of each demo.
+│
+├── tests/
+│   └── Test scripts and datasets, including:
+│       - train_28-32_10000.csv
+│       - test_28-32_1000.csv
+│       These are used to verify correctness and evaluate performance.
+│
+├── docs/
+│   └── Final presentation slides.
+│
+├── report.md
+│   └── Final project report covering:
+│       - Background
+│       - Modeling methodology
+│       - Experimental results
+│       - Key takeaways
+│
+├── requirements.txt
+│   └── Python package dependencies (e.g., torch, numpy, pandas) for consistent reproducibility.
+│
+├── development_history/
+│   └── Archived files from earlier stages, including:
+│       - Draft code and notebooks
+│       - Interim reports and slides (with self-critiques)
+│       - Figures and exploratory LLM-related work
+```
+
 
 ## Setup Instructions
 
