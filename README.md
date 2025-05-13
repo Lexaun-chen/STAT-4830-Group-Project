@@ -13,4 +13,4 @@ https://colab.research.google.com/drive/1u8P8WUMnW8a9PnYXDeWyapwQbmQUbVnf?usp=sh
 https://colab.research.google.com/drive/10wc_ViKCkdIKrYfXoaxzNkpGt_y-oBNq?usp=sharing
 
 #### Expedia dataset
-https://colab.research.google.com/drive/10Qhc49LnFdxzMEYaxjaSKuz9-rmb6DoU
+https://colab.research.google.com/drive/1JG8rfqfAN9tAbaT9fhMazpSH6vbZX72Z?usp=sharing
