@@ -16,7 +16,7 @@ Use the provided requirements.txt to install all necessary packages:
 pip install -r requirements.txt
 3. Download Source Files
 Make sure you have the following files locally:
-The notebook: notebooks/Final_Demo.ipynb
+The notebook: notebooks/Demo.ipynb
 Source code in src/
 Any scripts or test files if you want to run from command line or verify with pytest
 4. Set the Python Path (if needed)
