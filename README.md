@@ -2,9 +2,6 @@
 ## Group Members: Shuhan Zhang, Xinyu Zhang, Lexuan Chen
 
 ## Summary
-This project addresses the problem of predicting consumer hotel preferences based on personalized offer sets and relevant hotel and consumer features, using real-world data from Expedia. Two modeling frameworks were explored: a mixture preference learning model optimized via the Frank-Wolfe algorithm, including neural network extensions, and a matrix completion approach based on low-rank factorization methods. The findings indicate that linear models generally outperform neural networks due to limited data size and inherent linearity in consumer decision-making. Additionally, the matrix completion methods proved robust and effective, particularly when incorporating bias-aware initialization and using the Huber loss function to handle sparsity and noisy data. Overall, the study provides valuable insights into modeling consumer preferences and demonstrates practical methods suitable for predicting choices in large-scale recommendation systems.
-
-## Summary
 
 **Problem Statement**  
 This project tackles the problem of predicting consumer hotel preferences from personalized offer sets, using real-world data from Expedia. The goal is to model and anticipate user choices based on both hotel attributes and consumer features.
