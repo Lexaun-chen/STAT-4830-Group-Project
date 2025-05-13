@@ -25,7 +25,7 @@ This project addresses the problem of predicting consumer hotel preferences base
 │   └── Test scripts and datasets, including:
 │       - train_28-32_10000.csv
 │       - test_28-32_1000.csv
-│       These are used to verify correctness and evaluate performance.
+│       And other necessary datasets. These are used to verify correctness and evaluate performance.
 │
 ├── docs/
 │   └── Final presentation slides.
