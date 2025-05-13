@@ -6,3 +6,5 @@ This project addresses the problem of predicting consumer hotel preferences base
 ## Setup Instructions
 ## Running the Code
 ## Executable Demo Link
+# Frank-Wolfe Algorithn (MNL and NN-based)
+https://colab.research.google.com/drive/1u8P8WUMnW8a9PnYXDeWyapwQbmQUbVnf?usp=sharing
