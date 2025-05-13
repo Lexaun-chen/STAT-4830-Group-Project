@@ -1,3 +1,5 @@
+# Demo Summary
+## Frank-Wolfe Algorithm Demo Workflow
 ## Netflix Matrix Completion Demo Workflow
 This section outlines the full matrix completion pipeline for the Netflix dataset using low-rank factorization and Adam optimization. The goal is to recover a dense user–movie rating matrix from sparse observed entries.
 #### 1️⃣ Load Netflix Ratings Data
