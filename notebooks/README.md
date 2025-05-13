@@ -14,11 +14,11 @@ We transform the raw ratings list into a matrix format, mapping UserID and Movie
 #### 3️⃣ Train Matrix Completion Model with Adam
 We randomly mask a portion of the observed ratings as test data using create_train_test_split, and train the matrix completion model to reconstruct the observed entries using Adam optimizer.
 
-####4️⃣ Predict Full Utility Matrix
+#### 4️⃣ Predict Full Utility Matrix
 After training, we extract the completed matrix with all missing entries filled. This matrix can be used for recommendation, evaluation, or ranking.
 
 
-## Expedia Matrix Completion Workflow
+## Expedia Matrix Completion Demo Workflow
 This section describes the full pipeline we implemented to recover a dense user–item utility matrix for Expedia hotel recommendation, combining preference learning with matrix completion.
 
  #### 1️⃣ Train MNL Model on Expedia Raw Data
