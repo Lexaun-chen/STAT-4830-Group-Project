@@ -4,6 +4,23 @@
 ## Summary
 This project addresses the problem of predicting consumer hotel preferences based on personalized offer sets and relevant hotel and consumer features, using real-world data from Expedia. Two modeling frameworks were explored: a mixture preference learning model optimized via the Frank-Wolfe algorithm, including neural network extensions, and a matrix completion approach based on low-rank factorization methods. The findings indicate that linear models generally outperform neural networks due to limited data size and inherent linearity in consumer decision-making. Additionally, the matrix completion methods proved robust and effective, particularly when incorporating bias-aware initialization and using the Huber loss function to handle sparsity and noisy data. Overall, the study provides valuable insights into modeling consumer preferences and demonstrates practical methods suitable for predicting choices in large-scale recommendation systems.
 
+## Summary
+
+**Problem Statement**  
+This project tackles the problem of predicting consumer hotel preferences from personalized offer sets, using real-world data from Expedia. The goal is to model and anticipate user choices based on both hotel attributes and consumer features.
+
+**Modeling Approaches**  
+Two complementary frameworks were developed:
+- A **mixture preference learning model**, optimized via the **Frank-Wolfe algorithm**, with extensions to neural networks for capturing nonlinear utility signals.
+- A **matrix completion approach** based on **low-rank factorization**, designed to recover missing preference data and improve predictive accuracy.
+
+**Key Findings & Contributions**
+- **Linear models** consistently outperformed neural networks, likely due to the limited dataset size and the relatively linear nature of consumer decision processes.
+- The **matrix completion framework** showed strong robustness, particularly when enhanced with **bias-aware initialization** and **Huber loss**, which together helped mitigate data sparsity and noise.
+- The study offers practical modeling strategies for preference prediction, and demonstrates how classical optimization and matrix recovery methods can be effectively applied in **large-scale recommendation systems**.
+
+
+
 ## Repository Structure Overview
 
 ```
