@@ -1,5 +1,21 @@
 # Demo Summary
 ## Frank-Wolfe Algorithm Demo Workflow
+This section outlines the full pipeline for preference learning on the Expedia dataset using a mixture model optimized via the Frank-Wolfe algorithm. The objective is to predict consumer choices by identifying latent preference types and their proportions from personalized hotel offers.
+### 1️⃣ Load Expedia Dataset
+We first load the Expedia dataset containing personalized hotel offers. The data includes tensors representing:
+offerset_tensor: Features of offered hotels
+sell_tensor: Actual consumer choices (binary indicators)
+mask_tensor: Binary masks indicating available hotel options per offer set
+### 2️⃣ Initialize Preference Learning Model
+We encapsulate the data into a Sales class and initialize a Problem_FrankWolfe object. This model represents:
+Offers (hotel features)
+Consumers' choice data
+Latent preference components, represented by utility vectors to be discovered through optimization
+### 3️⃣ Train Model with Frank-Wolfe Algorithm
+We iteratively apply the Frank-Wolfe optimization procedure, alternating between identifying new latent preference types (support finding) by solving linear minimization problems and updating their mixture proportions with Adam or L-BFGS optimizers. The goal is to minimize the Negative Log-Likelihood (NLL) between predicted and actual choices.
+### 4️⃣ Predict Consumer Choice Probabilities
+Upon convergence, we obtain a learned mixture model comprising utility vectors and their associated proportions. This completed model can then predict consumer choices across new offer sets, enabling better recommendations and insights into consumer preferences.
+
 ## Netflix Matrix Completion Demo Workflow
 This section outlines the full matrix completion pipeline for the Netflix dataset using low-rank factorization and Adam optimization. The goal is to recover a dense user–movie rating matrix from sparse observed entries.
 #### 1️⃣ Load Netflix Ratings Data
