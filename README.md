@@ -7,6 +7,23 @@ This project addresses the problem of predicting consumer hotel preferences base
 ## Repository Structure Overview
 
 ## Setup Instructions
+We highly recommend using Google Colab to view and run our final demo. It handles all required installations automatically—just click “Runtime → Run all”, and the full pipeline will execute without any setup.
+If you prefer to run the code locally, follow these steps:
+1. Prepare a Jupyter Environment
+Make sure Jupyter Notebook is installed and properly configured with a Python 3.9+ kernel.
+2. Install Dependencies
+Use the provided requirements.txt to install all necessary packages:
+pip install -r requirements.txt
+3. Download Source Files
+Make sure you have the following files locally:
+The notebook: notebooks/Final_Demo.ipynb
+Source code in src/
+Any scripts or test files if you want to run from command line or verify with pytest
+4. Set the Python Path (if needed)
+Ensure your Python environment can locate the src/ module. If needed, add the project root to your PYTHONPATH or append manually in the notebook.
+5. Run the Notebook
+Open and execute the notebook:
+It will import functions from src/, train the model, and display the results—including convergence plots and ranking tables.
 
 ## Running the Code
 The entire final results can be executed seamlessly in Google Colab with one click.
@@ -21,7 +38,7 @@ https://colab.research.google.com/drive/1u8P8WUMnW8a9PnYXDeWyapwQbmQUbVnf?usp=sh
 
 ## Matrix Completion Algorithm (NN-based+Adam)
 
-### Netflix datadet
+### Netflix dataset
 https://colab.research.google.com/drive/10wc_ViKCkdIKrYfXoaxzNkpGt_y-oBNq?usp=sharing
 
 #### Netflix Matrix Completion Workflow
